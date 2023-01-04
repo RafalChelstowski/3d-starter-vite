@@ -2,7 +2,7 @@ export {};
 
 declare global {
   interface Window {
-    ReactQueryClientContext: never;
+    ReactQueryClientContext: Context<QueryClient | undefined>;
     AmbientLightSensor: AmbientLightSensor;
     Accelerometer: Accelerometer;
   }

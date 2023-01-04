@@ -2,16 +2,13 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useContextBridge } from '@react-three/drei';
 import { GeoBox } from '~/components/GeoBox';
 import { accelerometerSensor } from '~/api/accelerometerSensor';
+import { QueryClientContext } from '~/App';
 import { AccBox } from '~/components/AccBox';
 
 export function Home() {
-  if (!window.ReactQueryClientContext) {
-    throw new Error('no react query context');
-  }
-
   accelerometerSensor();
 
-  const ContextBridge = useContextBridge(window.ReactQueryClientContext);
+  const ContextBridge = useContextBridge(QueryClientContext);
 
   return (
     <div className='w-screen h-screen'>
