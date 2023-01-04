@@ -1,8 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { getGpsCoordinates } from '~/api/geolocation';
+import { QueryClientContext } from '~/App';
 
 export function GeoBox() {
-  const { isLoading, error } = useQuery(['geolocation'], getGpsCoordinates);
+  const { isLoading, error } = useQuery(['geolocation'], getGpsCoordinates, {
+    context: QueryClientContext,
+  });
 
   const loadingColor = isLoading ? 'blue' : 'gray';
   const statusColor = error ? 'red' : 'green';
